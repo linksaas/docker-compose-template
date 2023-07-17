@@ -1,0 +1,53 @@
+version: "3.8"
+services:
+  db1:
+    image: "redis:6.0-alpine"
+    network_mode: "host"
+    volumes:
+<% if (storage == true) { _%>  
+      - {DATA_PATH1}:/data
+<% } _%>
+<% if (config == true) { _%>   
+      - ./redis1.conf:/etc/redis.conf
+<% } _%>
+    entrypoint:
+      - docker-entrypoint.sh
+<% if (config == true) { _%>      
+      - "/etc/redis.conf"
+<% } _%>
+      - "--port"
+      - {PORT1}
+<% if (cluster == true) { _%>
+  db2:
+    image: "redis:6.0-alpine"
+    network_mode: "host"
+    volumes:
+<% if (storage == true) { %>  
+      - {DATA_PATH2}:/data
+<% } _%>
+      - ./redis2.conf:/etc/redis.conf
+    entrypoint:
+      - docker-entrypoint.sh
+<% if (config == true) { _%>      
+      - "/etc/redis.conf"
+<% } _%>
+      - "--port"
+      - {PORT2}
+  db3:
+    image: "redis:6.0-alpine"
+    network_mode: "host"
+    volumes:
+<% if (storage == true) { _%>  
+      - {DATA_PATH3}:/data
+<% } _%>
+<% if (config == true) { _%>  
+      - ./redis3.conf:/etc/redis.conf
+<% } _%>
+    entrypoint:
+      - docker-entrypoint.sh
+<% if (config == true) { _%>      
+      - "/etc/redis.conf"
+<% } _%>
+      - "--port"
+      - {PORT3}
+<% } _%>

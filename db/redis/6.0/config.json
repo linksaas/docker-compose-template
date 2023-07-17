@@ -1,0 +1,97 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        },
+        {
+            "id": "config",
+            "name": "自定义配置"
+        },
+        {
+            "id": "cluster",
+            "name": "集群模式",
+            "tip": "运行redis-cli --cluster create 127.0.0.1:<PORT1> 127.0.0.1:<PORT2> 127.0.0.1:<PORT3> --cluster-replicas 1"
+        }
+    ],
+    "envs": [
+        {
+            "id": "PORT1",
+            "name": "第一节点服务端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 6379
+        },
+        {
+            "id": "PORT2",
+            "name": "第二节点服务端口",
+            "valueType": "integer",
+            "features": [
+                "cluster"
+            ],
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 6380
+        },
+        {
+            "id": "PORT3",
+            "name": "第三节点服务端口",
+            "valueType": "integer",
+            "features": [
+                "cluster"
+            ],
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 6381
+        },
+        {
+            "id": "DATA_PATH1",
+            "name": "第一节点存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "DATA_PATH2",
+            "name": "第二节点存储路径",
+            "features": [
+                "storage",
+                "cluster"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "DATA_PATH3",
+            "name": "第三节点存储路径",
+            "features": [
+                "storage",
+                "cluster"
+            ],
+            "valueType": "dirPath"
+        }
+    ],
+    "files": [
+        {
+            "name": "redis1.conf",
+            "features": [
+                "config"
+            ]
+        },
+        {
+            "name": "redis2.conf",
+            "features": [
+                "config",
+                "cluster"
+            ]
+        },
+        {
+            "name": "redis3.conf",
+            "features": [
+                "config",
+                "cluster"
+            ]
+        }
+    ]
+}
