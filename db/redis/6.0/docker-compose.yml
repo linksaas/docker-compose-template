@@ -3,9 +3,11 @@ services:
   db1:
     image: "redis:6.0-alpine"
     network_mode: "host"
+<% if ((storage == true) || (config == true)) { _%> 
     volumes:
+<% } _%>
 <% if (storage == true) { _%>  
-      - {DATA_PATH1}:/data
+      - ${DATA_PATH1}:/data
 <% } _%>
 <% if (config == true) { _%>   
       - ./redis1.conf:/etc/redis.conf
@@ -16,14 +18,16 @@ services:
       - "/etc/redis.conf"
 <% } _%>
       - "--port"
-      - {PORT1}
+      - ${PORT1}
 <% if (cluster == true) { _%>
   db2:
     image: "redis:6.0-alpine"
     network_mode: "host"
+<% if ((storage == true) || (config == true)) { _%> 
     volumes:
+<% } _%>
 <% if (storage == true) { %>  
-      - {DATA_PATH2}:/data
+      - ${DATA_PATH2}:/data
 <% } _%>
       - ./redis2.conf:/etc/redis.conf
     entrypoint:
@@ -32,13 +36,15 @@ services:
       - "/etc/redis.conf"
 <% } _%>
       - "--port"
-      - {PORT2}
+      - ${PORT2}
   db3:
     image: "redis:6.0-alpine"
     network_mode: "host"
+<% if ((storage == true) || (config == true)) { _%>  
     volumes:
+<% } _%>
 <% if (storage == true) { _%>  
-      - {DATA_PATH3}:/data
+      - ${DATA_PATH3}:/data
 <% } _%>
 <% if (config == true) { _%>  
       - ./redis3.conf:/etc/redis.conf
@@ -49,5 +55,5 @@ services:
       - "/etc/redis.conf"
 <% } _%>
       - "--port"
-      - {PORT3}
+      - ${PORT3}
 <% } _%>
