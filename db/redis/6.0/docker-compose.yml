@@ -3,6 +3,7 @@ services:
   db1:
     image: "redis:6.0-alpine"
     restart: always
+    hostname: db1
     ports:
       - ${PORT1}:${PORT1}
 <% if ((storage == true) || (config == true)) { _%> 
@@ -25,6 +26,7 @@ services:
   db2:
     image: "redis:6.0-alpine"
     restart: always
+    hostname: db2
     ports:
       - ${PORT2}:${PORT2}
 <% if ((storage == true) || (config == true)) { _%> 
@@ -46,6 +48,7 @@ services:
   db3:
     image: "redis:6.0-alpine"
     restart: always
+    hostname: db3
     ports:
       - ${PORT3}:${PORT3}
 <% if ((storage == true) || (config == true)) { _%>  
