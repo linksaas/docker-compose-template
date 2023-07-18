@@ -33,7 +33,9 @@ services:
 <% if (storage == true) { %>  
       - ${DATA_PATH2}:/data
 <% } _%>
+<% if (config == true) { _%>  
       - ./redis2.conf:/etc/redis.conf
+<% } _%>
     entrypoint:
       - docker-entrypoint.sh
 <% if (config == true) { _%>      

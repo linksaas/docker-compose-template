@@ -1,0 +1,70 @@
+version: "3.8"
+services:
+  db1:
+    image: "mongo:5.0"
+    hostname: db1
+    restart: always
+    volumes:
+      - ./mongod.sh:/usr/bin/mongod.sh
+<% if (storage == true) { _%>  
+      - ${DATA_PATH1}:/data/db
+<% } _%>
+<% if (config == true) { _%> 
+      - ./mongod1.conf:/etc/mongod.conf
+      - ./mongo.key:/etc/mongo.key
+<% } _%>
+    entrypoint:
+      - /usr/bin/mongod.sh
+<% if (config == true) { _%> 
+      - "--config"
+      - /etc/mongod.conf
+<% } _%>
+      - "--bind_ip_all"
+    ports:
+      - ${PORT1}:${PORT1}
+<% if (cluster == true) { _%> 
+  db2:
+    image: "mongo:5.0"
+    hostname: db2
+    restart: always
+    volumes:
+      - ./mongod.sh:/usr/bin/mongod.sh
+<% if (storage == true) { _%>  
+      - ${DATA_PATH2}:/data/db
+<% } _%>
+<% if (config == true) { _%> 
+      - ./mongod2.conf:/etc/mongod.conf
+      - ./mongo.key:/etc/mongo.key
+<% } _%>
+    entrypoint:
+      - /usr/bin/mongod.sh
+<% if (config == true) { _%> 
+      - "--config"
+      - /etc/mongod.conf
+<% } _%>
+      - "--bind_ip_all"
+    ports:
+      - ${PORT2}:${PORT2}
+  db3:
+    image: "mongo:5.0"
+    hostname: db3
+    restart: always
+    volumes:
+      - ./mongod.sh:/usr/bin/mongod.sh
+<% if (storage == true) { _%>  
+      - ${DATA_PATH3}:/data/db
+<% } _%>
+<% if (config == true) { _%> 
+      - ./mongod3.conf:/etc/mongod.conf
+      - ./mongo.key:/etc/mongo.key
+<% } _%>
+    entrypoint:
+      - /usr/bin/mongod.sh
+<% if (config == true) { _%> 
+      - "--config"
+      - /etc/mongod.conf
+<% } _%>
+      - "--bind_ip_all"
+    ports:
+      - ${PORT3}:${PORT3}
+<% } _%>

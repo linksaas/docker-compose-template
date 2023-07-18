@@ -1,0 +1,141 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        },
+        {
+            "id": "config",
+            "name": "自定义配置"
+        },
+        {
+            "id": "cluster",
+            "name": "集群模式"
+        }
+    ],
+    "envs": [
+        {
+            "id": "PORT1",
+            "name": "第一节点服务端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 27017
+        },
+        {
+            "id": "PORT2",
+            "name": "第二节点服务端口",
+            "valueType": "integer",
+            "features": [
+                "cluster"
+            ],
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 27018
+        },
+        {
+            "id": "PORT3",
+            "name": "第三节点服务端口",
+            "valueType": "integer",
+            "features": [
+                "cluster"
+            ],
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 27019
+        },
+        {
+            "id": "DATA_PATH1",
+            "name": "第一节点存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "DATA_PATH2",
+            "name": "第二节点存储路径",
+            "features": [
+                "storage",
+                "cluster"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "DATA_PATH3",
+            "name": "第三节点存储路径",
+            "features": [
+                "storage",
+                "cluster"
+            ],
+            "valueType": "dirPath"
+        }
+    ],
+    "files": [
+        {
+            "name": "mongod1.conf",
+            "features": [
+                "config"
+            ],
+            "variables": [
+                {
+                    "id": "PORT1",
+                    "name": "第一节点服务端口",
+                    "valueType": "integer",
+                    "minValue": 1025,
+                    "maxValue": 65534,
+                    "defaultValue": 27017
+                }
+            ]
+        },
+        {
+            "name": "mongod2.conf",
+            "features": [
+                "config",
+                "cluster"
+            ],
+            "variables": [
+                {
+                    "id": "PORT2",
+                    "name": "第二节点服务端口",
+                    "valueType": "integer",
+                    "features": [
+                        "cluster"
+                    ],
+                    "minValue": 1025,
+                    "maxValue": 65534,
+                    "defaultValue": 27018
+                }
+            ]
+        },
+        {
+            "name": "mongod3.conf",
+            "features": [
+                "config",
+                "cluster"
+            ],
+            "variables": [
+                {
+                    "id": "PORT3",
+                    "name": "第三节点服务端口",
+                    "valueType": "integer",
+                    "features": [
+                        "cluster"
+                    ],
+                    "minValue": 1025,
+                    "maxValue": 65534,
+                    "defaultValue": 27019
+                }
+            ]
+        },
+        {
+            "name": "mongo.key",
+            "features": [
+                "config"
+            ]
+        },
+        {
+            "name": "mongod.sh"
+        }
+    ]
+}
