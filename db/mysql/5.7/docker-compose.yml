@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  db:
+    image: "mysql:5.7"
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+<% if ((storage == true) || (config == true)) { _%> 
+    volumes:
+<% } _%>
+<% if (storage == true) { _%>  
+      - ${DATA_PATH}:/var/lib/mysql
+<% } _%>
+<% if (config == true) { _%>   
+      - ./my.cnf:/etc/my.cnf
+<% } _%>
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - 3306:3306
+
+<% if (admin == true) { _%>  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+<% } _%>

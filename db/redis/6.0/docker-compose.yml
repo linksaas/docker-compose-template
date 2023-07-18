@@ -2,7 +2,9 @@ version: "3.8"
 services:
   db1:
     image: "redis:6.0-alpine"
-    network_mode: "host"
+    restart: always
+    ports:
+      - ${PORT1}:${PORT1}
 <% if ((storage == true) || (config == true)) { _%> 
     volumes:
 <% } _%>
@@ -22,7 +24,9 @@ services:
 <% if (cluster == true) { _%>
   db2:
     image: "redis:6.0-alpine"
-    network_mode: "host"
+    restart: always
+    ports:
+      - ${PORT2}:${PORT2}
 <% if ((storage == true) || (config == true)) { _%> 
     volumes:
 <% } _%>
@@ -39,7 +43,9 @@ services:
       - ${PORT2}
   db3:
     image: "redis:6.0-alpine"
-    network_mode: "host"
+    restart: always
+    ports:
+      - ${PORT3}:${PORT3}
 <% if ((storage == true) || (config == true)) { _%>  
     volumes:
 <% } _%>
