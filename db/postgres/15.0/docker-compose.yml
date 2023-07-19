@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15.0-alpine
+    restart: always
+<% if (storage == true) { _%> 
+    volumes:
+      - ${DATA_PATH}:/var/lib/postgresql
+<% } _%>
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - 5432:5432
+
+<% if (admin == true) { _%>  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+<% } _%>

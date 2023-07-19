@@ -1,0 +1,45 @@
+{
+    "features": [
+        {
+            "id": "config",
+            "name": "自定义配置"
+        }
+    ],
+    "envs": [
+        {
+            "id": "ETCD_DATA",
+            "name": "ETCD数据目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "MINIO_DATA",
+            "name": "MINIO数据目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "MILVUS_DATA",
+            "name": "MILVUS数据目录",
+            "valueType": "dirPath"
+        }
+    ],
+    "files": [
+        {
+            "name": "milvus.yaml",
+            "features": [
+                "config"
+            ],
+            "variables": [
+                {
+                    "id": "AUTH",
+                    "name": "密码验证",
+                    "valueType": "string",
+                    "optionList": [
+                        "true",
+                        "false"
+                    ],
+                    "defaultValue": "false"
+                }
+            ]
+        }
+    ]
+}

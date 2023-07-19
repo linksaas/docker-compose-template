@@ -1,0 +1,29 @@
+{
+    "features": [
+        {
+            "id": "admin",
+            "name": "管理界面"
+        },
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "POSTGRES_PASSWORD",
+            "name": "postgres密码",
+            "valueType": "string",
+            "defaultValue": "123456"
+        },
+        {
+            "id": "DATA_PATH",
+            "name": "数据存储目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage"
+            ],
+            "defaultValue": ""
+        }
+    ]
+}
