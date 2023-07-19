@@ -1,0 +1,128 @@
+version: '3.8'
+
+services:
+  pd0:
+    image: pingcap/pd:v6.1.7
+    volumes:
+      - ./pd.toml:/pd.toml:ro
+      - ${PD_DATA0}:/data
+      - ${PD_LOG0}:/logs
+    command:
+      - --name=pd0
+      - --client-urls=http://0.0.0.0:2379
+      - --peer-urls=http://0.0.0.0:2380
+      - --advertise-client-urls=http://pd0:2379
+      - --advertise-peer-urls=http://pd0:2380
+      - --initial-cluster=pd0=http://pd0:2380,pd1=http://pd1:2380,pd2=http://pd2:2380
+      - --data-dir=/data/pd0
+      - --config=/pd.toml
+      - --log-file=/logs/pd0.log
+    restart: on-failure
+  pd1:
+    image: pingcap/pd:v6.1.7
+    volumes:
+      - ./pd.toml:/pd.toml:ro
+      - ${PD_DATA1}:/data
+      - ${PD_LOG1}:/logs
+    command:
+      - --name=pd1
+      - --client-urls=http://0.0.0.0:2379
+      - --peer-urls=http://0.0.0.0:2380
+      - --advertise-client-urls=http://pd1:2379
+      - --advertise-peer-urls=http://pd1:2380
+      - --initial-cluster=pd0=http://pd0:2380,pd1=http://pd1:2380,pd2=http://pd2:2380
+      - --data-dir=/data/pd1
+      - --config=/pd.toml
+      - --log-file=/logs/pd1.log
+    restart: on-failure
+  pd2:
+    image: pingcap/pd:v6.1.7
+    volumes:
+      - ./pd.toml:/pd.toml:ro
+      - ${PD_DATA2}:/data
+      - ${PD_LOG2}:/logs
+    command:
+      - --name=pd2
+      - --client-urls=http://0.0.0.0:2379
+      - --peer-urls=http://0.0.0.0:2380
+      - --advertise-client-urls=http://pd2:2379
+      - --advertise-peer-urls=http://pd2:2380
+      - --initial-cluster=pd0=http://pd0:2380,pd1=http://pd1:2380,pd2=http://pd2:2380
+      - --data-dir=/data/pd2
+      - --config=/pd.toml
+      - --log-file=/logs/pd2.log
+    restart: on-failure
+  tikv0:
+    image: pingcap/tikv:v6.1.7
+    volumes:
+      - ./tikv.toml:/tikv.toml:ro
+      - ${TIKV_DATA0}:/data
+      - ${TIKV_LOG0}:/logs
+    command:
+      - --addr=0.0.0.0:20160
+      - --advertise-addr=tikv0:20160
+      - --data-dir=/data/tikv0
+      - --pd=pd0:2379,pd1:2379,pd2:2379
+      - --config=/tikv.toml
+      - --log-file=/logs/tikv0.log
+    depends_on:
+      - "pd0"
+      - "pd1"
+      - "pd2"
+    restart: on-failure
+  tikv1:
+    image: pingcap/tikv:v6.1.7
+    volumes:
+      - ./tikv.toml:/tikv.toml:ro
+      - ${TIKV_DATA1}:/data
+      - ${TIKV_LOG1}:/logs
+    command:
+      - --addr=0.0.0.0:20160
+      - --advertise-addr=tikv1:20160
+      - --data-dir=/data/tikv1
+      - --pd=pd0:2379,pd1:2379,pd2:2379
+      - --config=/tikv.toml
+      - --log-file=/logs/tikv1.log
+    depends_on:
+      - "pd0"
+      - "pd1"
+      - "pd2"
+    restart: on-failure
+  tikv2:
+    image: pingcap/tikv:v6.1.7
+    volumes:
+      - ./tikv.toml:/tikv.toml:ro
+      - ${TIKV_DATA2}:/data
+      - ${TIKV_LOG2}:/logs
+    command:
+      - --addr=0.0.0.0:20160
+      - --advertise-addr=tikv2:20160
+      - --data-dir=/data/tikv2
+      - --pd=pd0:2379,pd1:2379,pd2:2379
+      - --config=/tikv.toml
+      - --log-file=/logs/tikv2.log
+    depends_on:
+      - "pd0"
+      - "pd1"
+      - "pd2"
+    restart: on-failure
+
+  tidb:
+    image: pingcap/tidb:v6.1.7
+    ports:
+      - "4000:4000"
+      - "10080:10080"
+    volumes:
+      - ./tidb.toml:/tidb.toml:ro
+      - ${TIDB_LOG}:/logs
+    command:
+      - --store=tikv
+      - --path=pd0:2379,pd1:2379,pd2:2379
+      - --config=/tidb.toml
+      - --log-file=/logs/tidb.log
+      - --advertise-address=tidb
+    depends_on:
+      - "tikv0"
+      - "tikv1"
+      - "tikv2"
+    restart: on-failure

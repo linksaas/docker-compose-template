@@ -1,0 +1,81 @@
+{
+    "features": [],
+    "envs": [
+        {
+            "id": "PD_DATA0",
+            "name": "PD0数据目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "PD_DATA1",
+            "name": "PD1数据目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "PD_DATA2",
+            "name": "PD2数据目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "PD_LOG0",
+            "name": "PD0日志目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "PD_LOG1",
+            "name": "PD1日志目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "PD_LOG2",
+            "name": "PD2日志目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "TIKV_DATA0",
+            "name": "TIKV0数据目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "TIKV_DATA1",
+            "name": "TIKV1数据目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "TIKV_DATA2",
+            "name": "TIKV2数据目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "TIKV_LOG0",
+            "name": "TIKV0日志目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "TIKV_LOG1",
+            "name": "TIKV1日志目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "TIKV_LOG2",
+            "name": "TIKV2日志目录",
+            "valueType": "dirPath"
+        },
+        {
+            "id": "TIDB_LOG",
+            "name": "TIDB日志目录",
+            "valueType": "dirPath"
+        }
+    ],
+    "files": [
+        {
+            "name":"pd.toml"
+        },
+        {
+            "name":"tikv.toml"
+        },
+        {
+            "name":"tidb.toml"
+        }
+    ]
+}
