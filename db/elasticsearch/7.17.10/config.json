@@ -1,0 +1,58 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        },
+        {
+            "id": "config",
+            "name": "自定义配置"
+        }
+    ],
+    "envs": [
+        {
+            "id": "DATA_PATH",
+            "name": "数据目录",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "LOG_PATH",
+            "name": "日志目录",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "PLUGIN_PATH",
+            "name": "数据目录",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        }
+    ],
+    "files": [
+        {
+            "name": "elasticsearch.yml",
+            "features": [
+                "config"
+            ],
+            "variables": [
+                {
+                    "id": "SECURITY",
+                    "name": "安全模式",
+                    "valueType": "string",
+                    "optionList": [
+                        "true",
+                        "false"
+                    ],
+                    "defaultValue": "false"
+                }
+            ]
+        }
+    ]
+}

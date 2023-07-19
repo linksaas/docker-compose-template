@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  db1:
+    image: "elasticsearch:7.17.10"
+    hostname: db1
+    restart: always
+<% if ((storage == true) || (config == true)) {_%>
+    volumes:
+<% if (storage == true) { _%>
+      - ${DATA_PATH}:/usr/share/elasticsearch/data
+      - ${LOG_PATH}:/usr/share/elasticsearch/logs
+      - ${PLUGIN_PATH}:/usr/share/elasticsearch/plugins
+<% } _%>
+<% if (config == true) { _%>
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+<% } _%>
+<% } _%>
+    environment:
+      discovery.type: single-node
+    ports:
+      - 9200:9200
+      - 9300:9300
