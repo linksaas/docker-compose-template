@@ -14,6 +14,7 @@ services:
       - ./mongo.key:/etc/mongo.key
 <% } _%>
     entrypoint:
+      - /bin/sh
       - /usr/bin/mongod.sh
 <% if (config == true) { _%> 
       - "--config"
@@ -37,6 +38,7 @@ services:
       - ./mongo.key:/etc/mongo.key
 <% } _%>
     entrypoint:
+      - /bin/sh
       - /usr/bin/mongod.sh
 <% if (config == true) { _%> 
       - "--config"
@@ -59,6 +61,7 @@ services:
       - ./mongo.key:/etc/mongo.key
 <% } _%>
     entrypoint:
+      - /bin/sh
       - /usr/bin/mongod.sh
 <% if (config == true) { _%> 
       - "--config"
