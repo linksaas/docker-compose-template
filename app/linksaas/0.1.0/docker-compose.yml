@@ -3,6 +3,7 @@ version: "3.8"
 services:
   api:
     image: linksaas/api-server:0.1.0
+    restart: always
     volumes:
       - ./api.yaml:/app/server.yaml
       - ${LOG_PATH}:/app/logs
