@@ -1,0 +1,38 @@
+{
+    "features": [
+        {
+            "id": "auth",
+            "name": "开启密码验证"
+        },
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "PASSWORD",
+            "name": "密码",
+            "valueType": "string",
+            "defaultValue": "12345678"
+        },
+        {
+            "id": "DATA_PATH",
+            "name": "数据存储目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage"
+            ],
+            "defaultValue": ""
+        },
+        {
+            "id": "LOG_PATH",
+            "name": "日志目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage"
+            ],
+            "defaultValue": ""
+        }
+    ]
+}

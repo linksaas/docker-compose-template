@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  db1:
+    image: cassandra:4.1
+    hostname: db1
+<% if (storage == true) { _%>    
+    volumes:
+      - ${DATA_PATH1}:/var/lib/cassandra
+<% } _%>
+    ports:
+      - 9042:9042
+      - 9160:9160
+
+<% if (cluster == true) { _%> 
+  db2:
+    image: cassandra:4.1
+    hostname: db2
+    environment:
+      CASSANDRA_SEEDS: db1
+<% if (storage == true) { _%>    
+    volumes:
+      - ${DATA_PATH2}:/var/lib/cassandra
+<% } _%>
+
+  db3:
+    image: cassandra:4.1
+    hostname: db3
+    environment:
+      CASSANDRA_SEEDS: db1
+<% if (storage == true) { _%>    
+    volumes:
+      - ${DATA_PATH3}:/var/lib/cassandra
+<% } _%>
+<% } _%>

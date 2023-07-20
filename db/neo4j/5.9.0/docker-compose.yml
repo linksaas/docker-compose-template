@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  neo4j: 
+    image: neo4j:5.9.0-community 
+    container_name: neo4j 
+    restart: always 
+    environment: 
+<% if (auth == false) { _%>
+      - NEO4J_AUTH=none
+<% } _%>
+<% if (auth == true) { _%>
+      - NEO4J_AUTH=neo4j/${PASSWORD} 
+<% } _%>
+    ports: 
+      - 7473:7473
+      - 7474:7474 
+      - 7687:7687 
+<% if (storage == true) { _%> 
+    volumes: 
+      - ${DATA_PATH}:/var/lib/neo4j/data
+      - ${LOG_PATH}:/var/lib/neo4j/logs
+<% } _%>

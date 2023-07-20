@@ -1,0 +1,43 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        },
+        {
+            "id": "cluster",
+            "name": "集群模式"
+        }
+    ],
+    "envs": [
+        {
+            "id": "DATA_PATH1",
+            "name": "第一节点存储目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage"
+            ],
+            "defaultValue": ""
+        },
+        {
+            "id": "DATA_PATH2",
+            "name": "第二节点存储目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage",
+                "cluster"
+            ],
+            "defaultValue": ""
+        },
+        {
+            "id": "DATA_PATH3",
+            "name": "第三节点存储目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage",
+                "cluster"
+            ],
+            "defaultValue": ""
+        }
+    ]
+}

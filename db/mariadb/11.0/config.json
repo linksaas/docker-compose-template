@@ -1,0 +1,41 @@
+{
+    "features": [
+        {
+            "id": "admin",
+            "name": "管理界面"
+        },
+        {
+            "id": "config",
+            "name": "自定义配置"
+        },
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "MARIADB_ROOT_PASSWORD",
+            "name": "root密码",
+            "valueType": "string",
+            "defaultValue": "123456"
+        },
+        {
+            "id": "DATA_PATH",
+            "name": "数据存储目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage"
+            ],
+            "defaultValue": ""
+        }
+    ],
+    "files": [
+        {
+            "name": "mariadb.cnf",
+            "features": [
+                "config"
+            ]
+        }
+    ]
+}
