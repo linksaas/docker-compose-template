@@ -1,0 +1,62 @@
+- userName: admin
+  pubKey: "<%- SSH_PUB_KEY %>"
+  perm:
+    org:
+      read: true
+      create: true
+      update: true
+      move: true
+      remove: true
+      addUser: true
+      removeUser: true
+    user:
+      read: true
+      create: true
+      setState: true
+      resetPassword: true
+      accessEvent: true
+    project:
+      read: true
+      create: true
+      update: true
+      accessEvent: true
+    projectMember:
+      read: true
+      add: true
+      remove: true
+    menu:
+      read: true
+      add: true
+      remove: true
+      setWeight: true
+    ad:
+      read: true
+      add: true
+      remove: true
+      setWeight: true
+    appstore:
+      read: true
+      addCate: true
+      updateCate: true
+      removeCate: true
+      addApp: true
+      updateApp: true
+      removeApp: true
+    bookstore:
+      read: true
+      addCate: true
+      updateCate: true
+      removeCate: true
+      addBook: true
+      updateBook: true
+      removeBook: true
+    dockerTemplate:
+      read: true
+      createCate: true
+      updateCate: true
+      removeCate: true
+      createApp: true
+      updateApp: true
+      removeApp: true
+      createTemplate: true
+      removeTemplate: true
