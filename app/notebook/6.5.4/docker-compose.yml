@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  notebook:
+    image: jupyter/minimal-notebook:notebook-6.5.4
+<% if (storage == true) { _%>  
+    volumes:
+      - ${DATA_PATH}:/home/jovyan/work
+<% } _%>   
+    entrypoint:
+      - /usr/local/bin/start-notebook.sh
+      - "--NotebookApp.token=''"
+    ports:
+      - ${PORT}:8888
