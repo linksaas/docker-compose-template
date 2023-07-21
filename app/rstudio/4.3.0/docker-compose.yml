@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  rstudio:
+    image: rocker/rstudio:4.3.0
+<% if (storage == true) { _%>  
+    volumes:
+      - ${CONFIG_PATH}:/home/rstudio/.config/rstudio
+      - ${WORK_PATH}:/home/rstudio/workspace
+<% } _%>      
+    environment:
+      DISABLE_AUTH: true
+      ROOT: true
+    ports:
+      - ${PORT}:8787
