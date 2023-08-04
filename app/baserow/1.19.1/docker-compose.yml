@@ -1,0 +1,21 @@
+version: '3'
+services:
+  baserow:
+    image: baserow/baserow:1.19.1
+    ports:
+      - ${PORT}:80
+<% if (storage == true) { %>        
+    volumes:
+      - ${DATA_PATH}:/baserow/data
+<% } _%>
+    environment:
+      BASEROW_PUBLIC_URL: http://127.0.0.1:${PORT}
+<% if (smtp == true) { %> 
+      EMAIL_SMTP: True
+      EMAIL_SMTP_HOST: ${EMAIL_SMTP_HOST}
+      EMAIL_SMTP_PORT: ${EMAIL_SMTP_PORT}
+      EMAIL_SMTP_USER: ${EMAIL_SMTP_USER}
+      EMAIL_SMTP_PASSWORD: ${EMAIL_SMTP_PASSWORD}
+      EMAIL_SMTP_USE_TLS: True
+<% } _%>
+    restart: unless-stopped

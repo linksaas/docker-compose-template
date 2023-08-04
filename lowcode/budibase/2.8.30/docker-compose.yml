@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  budibase:
+    image: budibase/budibase:v2.8.30
+    ports:
+      - ${PORT}:80
+<% if (storage == true) { %>  
+    volumes:
+      - ${DATA_PATH}:/data
+<% } _%>
+    restart: unless-stopped

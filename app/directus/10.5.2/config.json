@@ -1,0 +1,58 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "PORT",
+            "name": "服务端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8080
+        },
+        {
+            "id": "DATA_PATH",
+            "name": "数据存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "UPLOAD_PATH",
+            "name": "文件存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "KEY",
+            "name": "KEY",
+            "valueType": "string",
+            "defaultValue": "random-value-for-key"
+        },
+        {
+            "id": "SECRET",
+            "name": "SECRET",
+            "valueType": "string",
+            "defaultValue": "random-value-for-secret"
+        },
+        {
+            "id": "ADMIN_EMAIL",
+            "name": "管理员账号(邮件)",
+            "valueType": "string",
+            "defaultValue": "admin@linksaas.pro"
+        },
+        {
+            "id": "ADMIN_PASSWORD",
+            "name": "管理员密码",
+            "valueType": "string",
+            "defaultValue": "123456"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+version: '3'
+services:
+  directus:
+    image: directus/directus:10.5.2
+    ports:
+      - ${PORT}:8055
+<% if (storage == true) { %>        
+    volumes:
+      - ${DATA_PATH}:/directus/database
+      - ${UPLOAD_PATH}:/directus/uploads
+<% } _%>
+    environment:
+      KEY: ${KEY}
+      SECRET: ${SECRET}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      DB_CLIENT: 'sqlite3'
+      DB_FILENAME: '/directus/database/data.db'
+      WEBSOCKETS_ENABLED: true
