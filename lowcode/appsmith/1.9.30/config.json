@@ -1,0 +1,26 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "PORT",
+            "name": "服务端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8080
+        },
+        {
+            "id": "DATA_PATH",
+            "name": "数据存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        }
+    ]
+}

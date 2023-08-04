@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  appsmith:
+    image: index.docker.io/appsmith/appsmith-ce:v1.9.30
+    container_name: appsmith
+    ports:
+      - ${PORT}:80
+<% if (storage == true) { %>  
+    volumes:
+      - ${DATA_PATH}:/appsmith-stacks
+<% } _%>
+    restart: unless-stopped
+

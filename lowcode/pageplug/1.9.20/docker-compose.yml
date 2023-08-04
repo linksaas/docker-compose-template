@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  pageplug:
+    image: index.docker.io/cloudtogouser/pageplug-ce:v1.9.20
+    container_name: pageplug
+    ports:
+      - ${PORT}:80
+<% if (storage == true) { %>  
+    volumes:
+      - ${DATA_PATH}:/appsmith-stacks
+<% } _%>
+    restart: unless-stopped
+
