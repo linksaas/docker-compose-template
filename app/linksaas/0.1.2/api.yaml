@@ -27,7 +27,7 @@ dataBase:
 clientCfg:
   brokerAddr: "tcp://<%- PUB_ADDR %>:<%- EMITTOR_PORT %>"
   serverAddr: "<%- PUB_ADDR %>:<%- GRPC_PORT  %>"
-  canInvite: false
+  canInvite: true
   canRegister: false
   enablePubAppStore: <%- ENABLE_PUB_APP_STORE %>
   enablePubBookStore: <%- ENABLE_PUB_BOOK_STORE %>

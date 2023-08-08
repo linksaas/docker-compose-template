@@ -58,7 +58,8 @@
                 {
                     "id": "PUB_ADDR",
                     "name": "外部访问地址",
-                    "valueType": "string"
+                    "valueType": "string",
+                    "defaultValue": "123456"
                 },
                 {
                     "id": "GRPC_PORT",
@@ -114,7 +115,7 @@
                     "id": "ENABLE_PUB_APP_STORE",
                     "name": "公共应用市场",
                     "valueType": "string",
-                    "defaultValue": "true",
+                    "defaultValue": "false",
                     "optionList": [
                         "true",
                         "false"
@@ -124,7 +125,7 @@
                     "id": "ENABLE_PUB_BOOK_STORE",
                     "name": "公共电子书",
                     "valueType": "string",
-                    "defaultValue": "true",
+                    "defaultValue": "false",
                     "optionList": [
                         "true",
                         "false"
@@ -134,7 +135,7 @@
                     "id": "ENABLE_DOCKER_TEMPLATE",
                     "name": "公共docker模板",
                     "valueType": "string",
-                    "defaultValue": "true",
+                    "defaultValue": "false",
                     "optionList": [
                         "true",
                         "false"
