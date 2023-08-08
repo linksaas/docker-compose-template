@@ -58,7 +58,8 @@
                 {
                     "id": "PUB_ADDR",
                     "name": "外部访问地址",
-                    "valueType": "string"
+                    "valueType": "string",
+                    "defaultValue": "127.0.0.1"
                 },
                 {
                     "id": "GRPC_PORT",
