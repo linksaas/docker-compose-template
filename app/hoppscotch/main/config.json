@@ -1,0 +1,13 @@
+{
+    "features": [],
+    "envs": [
+        {
+            "id": "PORT",
+            "name": "应用端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8000
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  hoppscotch:
+    image: hoppscotch/hoppscotch:main
+    ports:
+      - ${PORT}:3000
