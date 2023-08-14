@@ -1,0 +1,40 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "PORT",
+            "name": "服务端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8080
+        },
+        {
+            "id": "PG_DATA_PATH",
+            "name": "postgres存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "MONGO_DATA_PATH",
+            "name": "mongo存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "ROOT_PASSWORD",
+            "name": "root密码",
+            "valueType": "string",
+            "defaultValue": "123456"
+        }
+    ]
+}

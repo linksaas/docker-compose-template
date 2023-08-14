@@ -1,0 +1,61 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "PORT",
+            "name": "服务端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8080
+        },
+        {
+            "id": "APP_DATA_PATH",
+            "name": "应用存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "DB_DATA_PATH",
+            "name": "数据库存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "REDIS_DATA_PATH",
+            "name": "redis存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "WEAVIATE_DATA_PATH",
+            "name": "weaviate存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        }
+    ],
+    "files": [
+        {
+            "name": "default.conf"
+        },
+        {
+            "name": "nginx.conf"
+        },
+        {
+            "name": "proxy.conf"
+        }
+    ]
+}
