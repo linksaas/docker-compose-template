@@ -1,0 +1,68 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "PORT",
+            "name": "服务端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8080
+        },
+        {
+            "id": "MINIO_DATA_PATH",
+            "name": "minio数据目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage"
+            ],
+            "defaultValue": ""
+        },
+        {
+            "id": "MINIO_CONFIG_PATH",
+            "name": "minio配置目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage"
+            ],
+            "defaultValue": ""
+        },
+        {
+            "id": "REDIS_DATA_PATH",
+            "name": "redis数据目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage"
+            ],
+            "defaultValue": ""
+        },
+        {
+            "id": "MYSQL_DATA_PATH",
+            "name": "mysql数据目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage"
+            ],
+            "defaultValue": ""
+        },
+        {
+            "id": "RABBITMQ_DATA_PATH",
+            "name": "rabbitmq数据目录",
+            "valueType": "dirPath",
+            "features": [
+                "storage"
+            ],
+            "defaultValue": ""
+        }
+    ],
+    "files": [
+        {
+            "name": "env"
+        }
+    ]
+}
