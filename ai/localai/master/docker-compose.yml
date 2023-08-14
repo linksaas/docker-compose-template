@@ -1,0 +1,29 @@
+version: '3.6'
+
+services:
+  api:
+<% if (gpu == true) { %>  
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    image: quay.io/go-skynet/local-ai:master-cublas-cuda12
+<% } _%>
+<% if (gpu == false) { %> 
+    image: quay.io/go-skynet/local-ai:master
+<% } _%>
+    tty: true # enable colorized logs
+    restart: always # should this be on-failure ?
+    ports:
+      - ${PORT}:8080
+    env_file:
+      - env
+      - .env
+<% if (storage == true) { %>  
+    volumes:
+      - ${MODEL_PATH}:/models
+<% } _%>
+    command: ["/usr/bin/local-ai" ]
