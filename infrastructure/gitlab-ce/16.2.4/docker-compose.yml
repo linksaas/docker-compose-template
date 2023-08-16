@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  web:
+    image: gitlab/gitlab-ce:16.2.4-ce.0
+    restart: always
+    hostname: ${HTTP_HOST}
+    environment:
+      GITLAB_ROOT_PASSWORD: ${GITLAB_ROOT_PASSWORD}
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://${HTTP_HOST}:${HTTP_PORT}'
+        # Add any other gitlab.rb configuration here, each on its own line
+    ports:
+      - ${HTTP_PORT}:${HTTP_PORT}
+      - ${HTTPS_PORT}:443
+      - ${SSH_PORT}:22
+<% if (storage == true) { %>  
+    volumes:
+      - ${CONFIG_PATH}:/etc/gitlab
+      - ${LOG_PATH}:/var/log/gitlab
+      - ${DATA_PATH}:/var/opt/gitlab
+<% } _%>
+    shm_size: '256m'

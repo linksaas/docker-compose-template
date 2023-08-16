@@ -1,0 +1,72 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "GITLAB_ROOT_PASSWORD",
+            "name": "root密码",
+            "valueType": "string",
+            "defaultValue": "1234qwer!@",
+            "tip": "密码至少8位长度,混合字母数组和标点"
+        },
+        {
+            "id": "HTTP_HOST",
+            "name": "访问域名",
+            "valueType": "string",
+            "defaultValue": "localhost"
+        },
+        {
+            "id": "HTTP_PORT",
+            "name": "HTTP端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8000,
+            "tip": "不能使用8080端口，内部占用"
+        },
+        {
+            "id": "HTTPS_PORT",
+            "name": "HTTPS端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8443
+        },
+        {
+            "id": "SSH_PORT",
+            "name": "SSH端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 2222
+        },
+        {
+            "id": "CONFIG_PATH",
+            "name": "配置路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "LOG_PATH",
+            "name": "日志路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "DATA_PATH",
+            "name": "存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        }
+    ]
+}
