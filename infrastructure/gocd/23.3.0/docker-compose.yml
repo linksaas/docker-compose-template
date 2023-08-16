@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  server:
+    image: gocd/gocd-server:v23.3.0
+<% if (storage == true) { %> 
+    volumes:
+      - ${DATA_PATH}:/godata
+      - ${HOME_PATH}:/home/go
+<% } _%>
+    ports:
+      - ${HTTP_PORT}:8153
