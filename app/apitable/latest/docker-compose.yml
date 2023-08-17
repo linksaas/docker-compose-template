@@ -15,8 +15,8 @@ services:
     expose:
       - "8080"
     environment:
-      - TZ=Asia/Shanghai
-      - BASEURL=http://minio:9000
+      TZ: Asia/Shanghai
+      BASEURL: http://minio:9000
 
   backend-server:
     image: apitable/backend-server:latest
@@ -26,8 +26,8 @@ services:
     expose:
       - "8081"
     environment:
-      - TZ=Asia/Shanghai
-      - DEFAULT_TIME_ZONE=Asia/Shanghai
+      TZ: Asia/Shanghai
+      DEFAULT_TIME_ZONE: Asia/Shanghai
     depends_on:
       init-db:
         condition: service_completed_successfully
@@ -52,12 +52,12 @@ services:
     env_file:
       - env
     environment:
-      - TZ=Asia/Shanghai
-      - NODE_ENV=apitable
-      - NODE_OPTIONS=--max-old-space-size=2048 --max-http-header-size=80000
-      - API_MAX_MODIFY_RECORD_COUNTS=30
-      - INSTANCE_MAX_MEMORY=4096M
-      - ENABLE_SOCKET=true
+      TZ: Asia/Shanghai
+      NODE_ENV: apitable
+      NODE_OPTIONS: --max-old-space-size=2048 --max-http-header-size=80000
+      API_MAX_MODIFY_RECORD_COUNTS: 30
+      INSTANCE_MAX_MEMORY: 4096M
+      ENABLE_SOCKET: true
     depends_on:
       mysql:
         condition: service_healthy
@@ -69,7 +69,7 @@ services:
     ports:
       - ${PORT}:80
     environment:
-      - TZ=Asia/Shanghai
+      TZ: Asia/Shanghai
     depends_on:
       web-server:
         condition: service_started
@@ -96,11 +96,11 @@ services:
       - ${MINIO_CONFIG_PATH}:/root/.minio
 <% } _%>
     environment:
-      - MINIO_ACCESS_KEY=apitable
-      - MINIO_SECRET_KEY=apitable_com
-      - MINIO_ROOT_USER=apitable
-      - MINIO_ROOT_PASSWORD=apitable_com
-      - TZ=Asia/Shanghai
+      MINIO_ACCESS_KEY: apitable
+      MINIO_SECRET_KEY: apitable_com
+      MINIO_ROOT_USER: apitable
+      MINIO_ROOT_PASSWORD: apitable_com
+      TZ: Asia/Shanghai
     healthcheck:
       test: ["CMD-SHELL", "curl -sS 'http://localhost:9000' || exit 1"]
       interval: 5s

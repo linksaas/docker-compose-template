@@ -1,0 +1,73 @@
+LOCKBOX_MASTER_KEY=26e922595022b5ac20121195358a09605e828a62797b995a287205dd92ab065c
+SECRET_KEY_BASE=cff9740b4417d4f8fea28a7c88e05d4b43d7ca5cd5b6124af1ad16ce67700fbadd0b724bce7d57c2232754ed470d5b7b507c2c50d293d595fb35b786d294f367
+
+# DATABASE CONFIG
+ORM_LOGGING=all
+PG_DB=tooljet_production
+PG_USER=postgres
+POSTGRES_USER=postgres
+PG_HOST=postgresql
+PG_PASS=w9Sl4lL4UmsKaD
+POSTGRES_PASSWORD=w9Sl4lL4UmsKaD
+# The above postgres values is set to its default state. If necessary, kindly modify it according to your personal preference.
+
+# TOOLJET DATABASE
+ENABLE_TOOLJET_DB=true
+TOOLJET_DB=tooljet_db
+TOOLJET_DB_USER=postgres
+TOOLJET_DB_HOST=postgresql
+TOOLJET_DB_PASS=w9Sl4lL4UmsKaD
+
+PGRST_DB_URI=postgres://postgres:w9Sl4lL4UmsKaD@postgresql/tooljet_db
+PGRST_HOST=postgrest
+PGRST_JWT_SECRET=7a147925b700901fc3d0a8dc1b083472101261191ab605233ef154f4a60003d0
+
+# Checks every 24 hours to see if a new version of ToolJet is available
+# (Enabled by default. Set false to disable)
+CHECK_FOR_UPDATES=true
+
+# Checks every 24 hours to update app telemetry data to ToolJet hub.
+# (Telemetry is enabled by default. Set value to true to disable.)
+# DISABLE_TOOLJET_TELEMETRY=false
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+# EMAIL CONFIGURATION
+DEFAULT_FROM_EMAIL=hello@tooljet.io
+SMTP_USERNAME=
+SMTP_PASSWORD=
+SMTP_DOMAIN=
+SMTP_PORT=
+
+# DISABLE USER SIGNUPS (true or false). only applicable if Multi-Workspace feature is enabled
+DISABLE_SIGNUPS=
+
+
+# OBSERVABILITY
+APM_VENDOR=
+SENTRY_DNS=
+SENTRY_DEBUG=
+
+# FEATURE TOGGLE
+COMMENT_FEATURE_ENABLE=
+ENABLE_MULTIPLAYER_EDITING=true
+ENABLE_MARKETPLACE_FEATURE=
+
+
+# SSO (Applicable only for Multi-Workspace)
+SSO_GOOGLE_OAUTH2_CLIENT_ID=
+SSO_GIT_OAUTH2_CLIENT_ID=
+SSO_GIT_OAUTH2_CLIENT_SECRET=
+SSO_GIT_OAUTH2_HOST=
+SSO_ACCEPTED_DOMAINS=
+SSO_DISABLE_SIGNUPS=
+
+#ONBOARDING
+ENABLE_ONBOARDING_QUESTIONS_FOR_ALL_SIGN_UPS=
+
+#session expiry in minutes
+USER_SESSION_EXPIRY=2880
+
+#TELEMETRY
+DEPLOYMENT_PLATFORM=docker
