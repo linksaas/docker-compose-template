@@ -1,0 +1,50 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "HTTP_PORT",
+            "name": "HTTP端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8080
+        },
+        {
+            "id": "SSH_PORT",
+            "name": "SSH端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 29418
+        },
+        {
+            "id": "GIT_DATA_PATH",
+            "name": "GIT存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "INDEX_DATA_PATH",
+            "name": "索引存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "CACHE_DATA_PATH",
+            "name": "缓存存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        }
+    ]
+}

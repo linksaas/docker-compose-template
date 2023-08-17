@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  gerrit:
+    image: gerritcodereview/gerrit:3.8.1
+<% if (storage == true) { %> 
+    volumes:
+      - ${GIT_DATA_PATH}:/var/gerrit/git
+      - ${INDEX_DATA_PATH}:/var/gerrit/index
+      - ${CACHE_DATA_PATH}:/var/gerrit/cache
+<% } _%>
+    ports:
+       - ${SSH_PORT}:29418
+       - ${HTTP_PORT}:8080
