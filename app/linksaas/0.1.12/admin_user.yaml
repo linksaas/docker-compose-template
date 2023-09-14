@@ -60,16 +60,3 @@
       removeApp: true
       createTemplate: true
       removeTemplate: true
-    rss:
-      read: true
-      addCrawler: true
-      upateCrawler: true
-      removeCrawler: true
-    pubSearch:
-      read: true
-      addCate: true
-      updateCate: true
-      removeCate: true
-      addSite: true
-      updateSite: true
-      removeSite: true
