@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  server:
+    image: openzipkin/zipkin-slim:2.24
+    container_name: zipkin
+    restart: always
+    ports:
+      - ${PORT}:9411

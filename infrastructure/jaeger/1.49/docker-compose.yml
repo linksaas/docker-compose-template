@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+    jaeger-collector:
+      image: jaegertracing/jaeger-collector:1.49
+      command: 
+        - "--cassandra.keyspace=jaeger_v1_dc1"
+        - "--cassandra.servers=cassandra"
+        - "--collector.zipkin.host-port=9411"
+        - "--sampling.initial-sampling-probability=.5"
+        - "--sampling.target-samples-per-second=.01"
+      environment: 
+        - SAMPLING_CONFIG_TYPE=adaptive
+      ports:
+        - "${THRIFT_PORT}:14268"
+        - "${MODEL_PORT}:14250"
+        - "${ZIPKIN_PORT}:9411"
+      restart: on-failure
+      depends_on:
+        - cassandra-schema
+
+    jaeger-query:
+      image: jaegertracing/jaeger-query:1.49
+      command: ["--cassandra.keyspace=jaeger_v1_dc1", "--cassandra.servers=cassandra"]
+      ports:
+        - "${HTTP_PORT}:16686"
+      restart: on-failure
+      depends_on:
+        - cassandra-schema
+
+    jaeger-agent:
+      image: jaegertracing/jaeger-agent:1.49
+      command: ["--reporter.grpc.host-port=jaeger-collector:14250"]
+      ports:
+        - "${ZIPKIN_THRIFT_PORT}:5775/udp"
+        - "${COMPACT_THRIFT_PORT}:6831/udp"
+        - "${BIN_THRIFT_PORT}:6832/udp"
+        - "${CONFIG_PORT}:5778"
+      restart: on-failure
+      depends_on:
+        - jaeger-collector
+
+    cassandra:
+      image: cassandra:4.0
+<% if (storage == true) { %>      
+      volumes:
+      - ${DATA_PATH}:/var/lib/cassandra
+<% } _%>
+
+    cassandra-schema:
+      image: jaegertracing/jaeger-cassandra-schema:1.49
+      depends_on:
+        - cassandra

@@ -1,0 +1,82 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "ZIPKIN_THRIFT_PORT",
+            "name": "zipkin thrift协议端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 5775
+        },
+        {
+            "id": "COMPACT_THRIFT_PORT",
+            "name": "compact thrift协议接口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 6831
+        },
+        {
+            "id": "BIN_THRIFT_PORT",
+            "name": "bin thrift协议接口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 6832
+        },
+        {
+            "id": "CONFIG_PORT",
+            "name": "配置端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 5778
+        },
+        {
+            "id": "HTTP_PORT",
+            "name": "HTTP端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 16686
+        },
+        {
+            "id": "THRIFT_PORT",
+            "name": "jaeger thrift协议端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 14268
+        },
+        {
+            "id": "MODEL_PORT",
+            "name": "model协议端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 14250
+        },
+        {
+            "id": "ZIPKIN_PORT",
+            "name": "zipkin兼容协议端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 9411
+        },
+        {
+            "id": "DATA_PATH",
+            "name": "存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        }
+    ]
+}
