@@ -1,0 +1,82 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "REDIS_PORT",
+            "name": "redis服务端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 6379
+        },
+        {
+            "id": "HTTP_PORT",
+            "name": "http端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8080
+        },
+        {
+            "id": "MONITOR_PORT",
+            "name": "监控端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 5555
+        },
+        {
+            "id": "DAG_DIR",
+            "name": "DAG存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "LOG_DIR",
+            "name": "日志存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "CONFIG_DIR",
+            "name": "配置存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "PLUGIN_DIR",
+            "name": "插件存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "RESOURCE_DIR",
+            "name": "资源存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        },
+        {
+            "id": "PG_DATA_PATH",
+            "name": "PG数据路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        }
+    ]
+}
