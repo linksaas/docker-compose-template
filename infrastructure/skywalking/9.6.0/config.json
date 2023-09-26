@@ -1,0 +1,50 @@
+{
+    "features": [
+        {
+            "id": "storage",
+            "name": "映射存储"
+        }
+    ],
+    "envs": [
+        {
+            "id": "HTTP_PORT",
+            "name": "HTTP端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8080
+        },
+        {
+            "id": "ES_PORT",
+            "name": "ES服务端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 9200
+        },
+        {
+            "id": "GRPC_API_PORT",
+            "name": "GRPC后端接口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 11800
+        },
+        {
+            "id": "HTTP_API_PORT",
+            "name": "HTTP后端接口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 12800
+        },
+        {
+            "id": "DATA_PATH",
+            "name": "存储路径",
+            "features": [
+                "storage"
+            ],
+            "valueType": "dirPath"
+        }
+    ]
+}
