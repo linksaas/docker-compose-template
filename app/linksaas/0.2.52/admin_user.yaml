@@ -1,0 +1,104 @@
+- userName: admin
+  pubKey: "<%- SSH_PUB_KEY %>"
+  perm:
+    user:
+      read: true
+      create: true
+      setState: true
+      setTestAccount: true
+      resetPassword: true
+      accessEvent: true
+    project:
+      read: true
+      create: true
+      update: true
+      accessEvent: true
+    projectMember:
+      read: true
+      add: true
+      remove: true
+    menu:
+      read: true
+      add: true
+      remove: true
+      setWeight: true
+    appstore:
+      read: true
+      addCate: true
+      updateCate: true
+      removeCate: true
+      addApp: true
+      updateApp: true
+      removeApp: true
+      removeComment: true
+    dockerTemplate:
+      read: true
+      createCate: true
+      updateCate: true
+      removeCate: true
+      createApp: true
+      updateApp: true
+      removeApp: true
+      createTemplate: true
+      removeTemplate: true
+      removeComment: true
+    pubSearch:
+      read: true
+      addCate: true
+      updateCate: true
+      removeCate: true
+      addSite: true
+      updateSite: true
+      removeSite: true
+    group:
+      read: true
+      updateGroup: true
+      auditRecommend: true
+    devContainer:
+      read: true
+      addPackage: true
+      removePackage: true
+      addPackageVersion: true
+      removePackageVersion: true
+    ideaStore:
+      read: true
+      createStoreCate: true
+      updateStoreCate: true
+      removeStoreCate: true
+      createStore: true
+      updateStore: true
+      moveStore: true
+      removeStore: true
+      createIdea: true
+      updateIdea: true
+      moveIdea: true
+      removeIdea: true
+    widgetStore:
+      read: true
+      addWidget: true
+      updateWidget: true
+      removeWidget: true
+    swStore:
+      read: true          
+      addCate: true       
+      updateCate: true    
+      removeCate: true    
+      addSoftWare: true   
+      updateSoftWare: true
+      removeSoftWare: true
+    skillCenter:
+      read: true
+      createCate: true
+      updateCate: true
+      removeCate: true
+      createFolder: true
+      updateFolder: true
+      removeFolder: true
+      moveFolder: true
+      createPoint: true
+      updatePoint: true
+      removePoint: true
+      movePoint: true
+      addResource: true
+      updateResource: true
+      removeResource: true

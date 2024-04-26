@@ -1,0 +1,149 @@
+{
+    "envs": [
+        {
+            "id": "GRPC_PORT",
+            "name": "GRPC端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 5000
+        },
+        {
+            "id": "HTTP_PORT",
+            "name": "HTTP端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8000
+        },
+        {
+            "id": "METRIC_PORT",
+            "name": "METRIC端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 2121
+        },
+        {
+            "id": "EMITTOR_PORT",
+            "name": "emittor端口",
+            "valueType": "integer",
+            "minValue": 1025,
+            "maxValue": 65534,
+            "defaultValue": 8080
+        },
+        {
+            "id": "FILE_STORAGE_PATH",
+            "name": "文件存储路径",
+            "valueType": "dirPath",
+            "defaultValue": ""
+        },
+        {
+            "id": "LOG_PATH",
+            "name": "日志路径",
+            "valueType": "dirPath",
+            "defaultValue": ""
+        },
+        {
+            "id": "MONGO_DATA_PATH",
+            "name": "mongo存储路径",
+            "valueType": "dirPath",
+            "defaultValue": ""
+        }
+    ],
+    "files": [
+        {
+            "name": "api.yaml",
+            "variables": [
+                {
+                    "id": "PUB_ADDR",
+                    "name": "外部访问地址",
+                    "valueType": "string",
+                    "defaultValue": "127.0.0.1"
+                },
+                {
+                    "id": "GRPC_PORT",
+                    "name": "GRPC端口",
+                    "valueType": "integer",
+                    "minValue": 1025,
+                    "maxValue": 65534,
+                    "defaultValue": 5000
+                },
+                {
+                    "id": "HTTP_PORT",
+                    "name": "HTTP端口",
+                    "valueType": "integer",
+                    "minValue": 1025,
+                    "maxValue": 65534,
+                    "defaultValue": 8000
+                },
+                {
+                    "id": "METRIC_PORT",
+                    "name": "METRIC端口",
+                    "valueType": "integer",
+                    "minValue": 1025,
+                    "maxValue": 65534,
+                    "defaultValue": 2121
+                },
+                {
+                    "id": "EMITTOR_PORT",
+                    "name": "emittor端口",
+                    "valueType": "integer",
+                    "minValue": 1025,
+                    "maxValue": 65534,
+                    "defaultValue": 8080
+                },
+                {
+                    "id": "MONGO_USER",
+                    "name": "mongo用户名",
+                    "valueType": "string",
+                    "defaultValue": "root"
+                },
+                {
+                    "id": "MONGO_PASSWORD",
+                    "name": "mongo密码",
+                    "valueType": "string",
+                    "defaultValue": "123456"
+                },
+                {
+                    "id": "REDIS_PASSWORD",
+                    "name": "redis密码",
+                    "valueType": "string",
+                    "defaultValue": "123456"
+                }
+            ]
+        },
+        {
+            "name": "admin_user.yaml",
+            "variables": [
+                {
+                    "id": "SSH_PUB_KEY",
+                    "name": "SSH公钥内容",
+                    "valueType": "string",
+                    "defaultValue": "",
+                    "tip": "运行ssh-keygen -t rsa后复制id_rsa.pub里面的内容"
+                }
+            ]
+        },
+        {
+            "name": "mongo.key"
+        },
+        {
+            "name": "mongod.conf"
+        },
+        {
+            "name": "mongod.sh"
+        },
+        {
+            "name": "redis.conf",
+            "variables": [
+                {
+                    "id": "REDIS_PASSWORD",
+                    "name": "redis密码",
+                    "valueType": "string",
+                    "defaultValue": "123456"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+  api:
+    image: linksaas/api-server:0.2.46
+    restart: always
+    volumes:
+      - ./api.yaml:/app/server.yaml
+      - ${LOG_PATH}:/app/logs
+      - ./admin_user.yaml:/app/admin_user.yaml
+    ports:
+      - ${GRPC_PORT}:${GRPC_PORT}
+      - ${HTTP_PORT}:${HTTP_PORT}
+      - ${METRIC_PORT}:${METRIC_PORT}
+    depends_on:
+      - emitter
+      - mongo
+      - redis
+  storage:
+    image: linksaas/local-storage:0.0.1
+    volumes:
+      - ${FILE_STORAGE_PATH}:/data
+  emitter:
+    image: emitter/server
+    environment:
+      EMITTER_LICENSE: uppD0PFIcNK6VY-7PTo7uWH8EobaOGgRAAAAAAAAAAI
+      EMITTER_LISTEN: "0.0.0.0:${EMITTOR_PORT}"
+    ports:
+      - ${EMITTOR_PORT}:${EMITTOR_PORT}
+  mongo:
+    image: mongo:5.0.19
+    hostname: mongo
+    volumes:
+      - ./mongod.sh:/usr/bin/mongod.sh
+      - ${MONGO_DATA_PATH}:/data/db
+      - ./mongod.conf:/etc/mongod.conf
+      - ./mongo.key:/etc/mongo.key
+    entrypoint:
+      - /bin/sh
+      - /usr/bin/mongod.sh
+      - "--config"
+      - /etc/mongod.conf
+  redis:
+    image: redis:6.0-alpine
+    volumes:
+      - ./redis.conf:/etc/redis.conf
+    entrypoint:
+      - docker-entrypoint.sh
+      - "/etc/redis.conf"
