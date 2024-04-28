@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  db:
+    image: "pikadb/pika:3.5.3"
+    restart: always
+    ports:
+      - ${PORT}:9221
+<% if (storage == true) { _%> 
+    volumes:
+      - ${DATA_PATH}:/pika/db
+      - ${LOG_PATH}:/pika/log
+<% } _%>
