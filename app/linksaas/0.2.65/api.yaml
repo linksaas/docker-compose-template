@@ -1,0 +1,30 @@
+grpcPort: <%- GRPC_PORT %>
+httpPort: <%- HTTP_PORT %>
+metricPort: <%- METRIC_PORT %>
+webAddr : "http://<%- PUB_ADDR %>:<%- HTTP_PORT %>"
+logging:
+  grpc: "/app/logs/grpc.log"
+  task: "/app/logs/task.log"
+  webhook: "/app/logs/webhook.log"
+  reg: "/app/logs/reg.log"
+  mqtt: "/app/logs/mqtt.log"
+dataBase:
+  mongo:
+    url: "mongodb://<%- MONGO_USER %>:<%- MONGO_PASSWORD %>@mongo:27017/admin"
+    dataBase: "linksaas"
+  emitter:
+    urls:
+    - "tcp://emitter:<%- EMITTOR_PORT %>"
+    secretKey: "JUoOxjoXLc4muSxXynOpTc60nWtwUI3o"
+  fileStore:
+    remoteAddr: "storage:5002"
+  redis:
+    addr: redis:6379
+    passWord: <%- REDIS_PASSWORD %>
+clientCfg:
+  brokerAddr: "tcp://<%- PUB_ADDR %>:<%- EMITTOR_PORT %>"
+  serverAddr: "<%- PUB_ADDR %>:<%- GRPC_PORT  %>"
+  canInvite: true
+admin:
+  enable: true
+  userFile: "/app/admin_user.yaml"
